@@ -1,0 +1,20 @@
+version: 0.2
+
+phase:
+  install:
+    runtime-versions:
+      nodejs: 12.x
+    commands:
+      - node -v
+  pre_build:
+    commands:
+      - npm install
+      - npm install hexo -g
+  build:
+    commands:
+      - hexo generate
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'public'
+
