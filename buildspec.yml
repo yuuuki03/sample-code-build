@@ -5,16 +5,25 @@ phase:
     runtime-versions:
       nodejs: 12.x
     commands:
+      - echo install phase start...
+      - echo install hexo
+      - npm install -g hexo
+      - echo node -v
       - node -v
+      - echo npm -v
+      - npm -v
   pre_build:
     commands:
+      - echo Installing source NPM dependencies...
       - npm install
-      - npm install hexo -g
   build:
     commands:
+      - echo build phase start...
       - hexo generate
+      - echo ls
+      - ls -la
+      - echo build phase conpleted.
 artifacts:
   files:
     - '**/*'
   base-directory: 'public'
-
